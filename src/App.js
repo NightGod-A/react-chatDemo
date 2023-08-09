@@ -38,10 +38,10 @@ function App() {
   };
 
   useEffect(() => {
-    // 获取当前页面路径
-    const currentPath = window.location.pathname;
-    // 从路径中提取参数
-    const idParam = currentPath.split('/id/')[1];
+    // 获取查询参数部分
+    const queryParams = new URLSearchParams(window.location.search);
+    // 获取特定键的值
+    const idParam = queryParams.get('id');
     setId(idParam);
     const jsonData = {
       "uuid": idParam,
