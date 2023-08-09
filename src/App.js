@@ -51,7 +51,9 @@ function App() {
       setEnding(data.message[0].ending);
       setGreeting(data.message[0].greeting);
       handleAssistantMessage(data.message[0].greeting);
-      setQuestions(data.message[0].questions.questions);
+      const jsonQuestions = JSON.parse(data.message[0].questions);
+      console.log(jsonQuestions);
+      setQuestions(jsonQuestions.questions);
     });
 
   }, []);
